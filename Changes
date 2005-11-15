@@ -1,5 +1,8 @@
 Revision history for Test-JSON
 
+0.02    2005-11-15
+        Updated the level setting in is_json() to reflect the correct level.
+
 0.01    2005-11-12
         Easy JSON testing.
 

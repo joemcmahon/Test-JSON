@@ -13,11 +13,11 @@ Test::JSON - Test JSON data
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my $TEST = Test::Builder->new;
 my $JSON = JSON->new(
@@ -132,7 +132,7 @@ sub is_json ($$;$) {
             $json_for{ $item->[0] } = $json;
         }
     }
-    local $Test::Builder::Level = 2;
+    local $Test::Builder::Level = $Test::Builder::Level + 1;
     eq_or_diff( $json_for{input}, $json_for{expected}, $test_name );
 }
 
@@ -151,6 +151,12 @@ your bug as I make changes.
 =head1 SEE ALSO
 
 This test module uses L<JSON> and L<Test::Differences>.
+
+=head1 ACKNOWLEDGEMENTS
+
+The development of this module was sponsored by Kineticode,
+L<http://www.kineticode.com/>, the leading provider of services for the
+Bricolage content management system, L<http://www.bricolage.cc/>.
 
 =head1 COPYRIGHT & LICENSE
 
