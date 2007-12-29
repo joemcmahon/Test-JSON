@@ -4,7 +4,7 @@ use strict;
 use Carp;
 use Test::Builder;
 use Test::Differences;
-use JSON;
+use JSON::Any;
 
 =head1 NAME
 
@@ -12,14 +12,14 @@ Test::JSON - Test JSON data
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 my $TEST = Test::Builder->new;
-my $JSON = JSON->new->pretty->indent_length(2);
+my $JSON = JSON::Any->new;
 
 sub import {
     my $self   = shift;

@@ -2,11 +2,7 @@
 
 use Test::Tester;
 use Test::JSON;
-use Test::More tests => 38;
-
-use_ok 'JSON' or die;
-cmp_ok +JSON->VERSION, '>=', 1.99,
-  '... and we should be loading the new JSON version';
+use Test::More tests => 36;
 
 my $json = '{"bool":1,"name":"foo","id":1,"description":null}';
 my $good = '{"bool":1,"name":"foo","id":1,"description":null}';
