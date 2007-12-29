@@ -12,11 +12,11 @@ Test::JSON - Test JSON data
 
 =head1 VERSION
 
-Version 0.05
+Version 0.06
 
 =cut
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 my $TEST = Test::Builder->new;
 my $JSON = JSON::Any->new;
@@ -58,7 +58,7 @@ JavaScript Object Notation (JSON) is a lightweight data interchange format.
 L<Test::JSON> makes it easy to verify that you have built valid JSON and that
 it matches your expected output.
 
-See L<http://www.crockford.com/JSON/> for more information.
+See L<http://www.json.org/> for more information.
 
 =head1 TESTS
 
@@ -146,7 +146,7 @@ your bug as I make changes.
 
 =head1 SEE ALSO
 
-This test module uses L<JSON> and L<Test::Differences>.
+This test module uses L<JSON::Any> and L<Test::Differences>.
 
 =head1 ACKNOWLEDGEMENTS
 
@@ -157,13 +157,17 @@ Bricolage content management system, L<http://www.bricolage.cc/>.
 Thanks to Makamaka Hannyaharamitu C<makamaka@cpan.org> for a patch to make
 this work with JSON 2.0.
 
+Thanks to Stevan Little for suggesting a switch to L<JSON::Any>.  This makes
+it easier for this module to work with whatever JSON module you have
+installed.
+
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2005 Curtis "Ovid" Poe, all rights reserved.
+Copyright 2005-2007 Curtis "Ovid" Poe, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
 
 =cut
 
-1;    # End of Test::JSON
+1;

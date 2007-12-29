@@ -1,6 +1,6 @@
 ---
 name: Test-JSON
-version: 0.05
+version: 0.06
 author:
   - 'Curtis "Ovid" Poe <ovid@cpan.org>'
 abstract: Test JSON data
@@ -15,7 +15,7 @@ requires:
 provides:
   Test::JSON:
     file: lib/Test/JSON.pm
-    version: 0.05
+    version: 0.06
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
