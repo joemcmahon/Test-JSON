@@ -13,17 +13,17 @@ Test::JSON - Test JSON data
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 my $TEST = Test::Builder->new;
-my $JSON = JSON->new(
-    pretty => 1,
-    indent => 2,
-);
+my ( $JSON, $DECODE ) =
+  JSON->VERSION < 2
+  ? ( JSON->new( pretty => 1, indent => 2 ), 'jsonToObj' )
+  : ( JSON->new->pretty->indent_length(2), 'decode' );
 
 sub import {
     my $self   = shift;
@@ -103,7 +103,7 @@ sub is_valid_json ($;$) {
     my ( $input, $test_name ) = @_;
     croak "usage: is_valid_json(input,test_name)"
       unless defined $input;
-    eval { $JSON->jsonToObj($input) };
+    eval { $JSON->$DECODE($input) };
     if ( my $error = $@ ) {
         $TEST->ok( 0, $test_name );
         $TEST->diag("Input was not valid JSON:\n\n\t$error");
@@ -122,7 +122,7 @@ sub is_json ($$;$) {
 
     my %json_for;
     foreach my $item ( [ input => $input ], [ expected => $expected ] ) {
-        my $json = eval { $JSON->jsonToObj( $item->[1] ) };
+        my $json = eval { $JSON->$DECODE( $item->[1] ) };
         if ( my $error = $@ ) {
             $TEST->ok( 0, $test_name );
             $TEST->diag("$item->[0] was not valid JSON: $error");
@@ -157,6 +157,9 @@ This test module uses L<JSON> and L<Test::Differences>.
 The development of this module was sponsored by Kineticode,
 L<http://www.kineticode.com/>, the leading provider of services for the
 Bricolage content management system, L<http://www.bricolage.cc/>.
+
+Thanks to Makamaka Hannyaharamitu C<makamaka@cpan.org> for a patch to make
+this work with JSON 2.0.
 
 =head1 COPYRIGHT & LICENSE
 

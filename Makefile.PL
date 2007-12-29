@@ -2,16 +2,16 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-  'NAME' => 'Test::JSON',
-  'VERSION_FROM' => 'lib/Test/JSON.pm',
-  'PREREQ_PM' => {
-    'JSON' => '1',
-    'Test::Differences' => '0.47',
-    'Test::Simple' => '0.62',
-    'Test::Tester' => '0.103'
-  },
-  'INSTALLDIRS' => 'site',
-  'EXE_FILES' => [],
-  'PL_FILES' => {}
-)
+          'NAME' => 'Test::JSON',
+          'VERSION_FROM' => 'lib/Test/JSON.pm',
+          'PREREQ_PM' => {
+                           'JSON' => '1',
+                           'Test::Differences' => '0.47',
+                           'Test::Simple' => '0.62',
+                           'Test::Tester' => '0.103'
+                         },
+          'INSTALLDIRS' => 'site',
+          'EXE_FILES' => [],
+          'PL_FILES' => {}
+        )
 ;

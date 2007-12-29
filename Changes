@@ -1,5 +1,9 @@
 Revision history for Test-JSON
 
+0.03    2007-12-29
+        Updated to work with JSON 2.0 or earlier.  Thanks to Makamaka
+        Hannyaharamitu for a preliminary patch.
+
 0.02    2005-11-15
         Updated the level setting in is_json() to reflect the correct level.
 

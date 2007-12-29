@@ -1,21 +1,16 @@
 #!perl 
 
 use Test::Tester;
-use Test::JSON;
-use Test::More;
-
-plan +JSON->VERSION < 1.99
-  ? ( skip_all => 'Not testing new features with old JSON.pm' )
-  : ( tests => 36 );
+use Test::More tests => 38;
 use lib 't/lib';
-
 BEGIN {
-
+    
     # make sure we use the correct JSON version!
     use_ok 'JSON';
-    cmp_ok +JSON->VERSION, '>=', 1.99,
+    cmp_ok +JSON->VERSION, '<', 1.99,
       '... and we should be loading the old JSON version';
 }
+use Test::JSON;
 
 my $json = '{"bool":1,"name":"foo","id":1,"description":null}';
 my $good = '{"bool":1,"name":"foo","id":1,"description":null}';
@@ -78,7 +73,7 @@ check_test(
 );
 
 $invalid = '{"bool":1,"name":"fo","id":1,"description":nul}';
-$desc    = 'Invalid JSON should fail';
+$desc = 'Invalid JSON should fail';
 check_test(
     sub { is_valid_json $invalid, $desc },
     {
