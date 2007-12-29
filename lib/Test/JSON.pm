@@ -1,6 +1,5 @@
 package Test::JSON;
 
-use warnings;
 use strict;
 use Carp;
 use Test::Builder;
@@ -13,17 +12,14 @@ Test::JSON - Test JSON data
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 my $TEST = Test::Builder->new;
-my ( $JSON, $DECODE ) =
-  JSON->VERSION < 2
-  ? ( JSON->new( pretty => 1, indent => 2 ), 'jsonToObj' )
-  : ( JSON->new->pretty->indent_length(2), 'decode' );
+my $JSON = JSON->new->pretty->indent_length(2);
 
 sub import {
     my $self   = shift;
@@ -103,7 +99,7 @@ sub is_valid_json ($;$) {
     my ( $input, $test_name ) = @_;
     croak "usage: is_valid_json(input,test_name)"
       unless defined $input;
-    eval { $JSON->$DECODE($input) };
+    eval { $JSON->decode($input) };
     if ( my $error = $@ ) {
         $TEST->ok( 0, $test_name );
         $TEST->diag("Input was not valid JSON:\n\n\t$error");
@@ -122,7 +118,7 @@ sub is_json ($$;$) {
 
     my %json_for;
     foreach my $item ( [ input => $input ], [ expected => $expected ] ) {
-        my $json = eval { $JSON->$DECODE( $item->[1] ) };
+        my $json = eval { $JSON->decode( $item->[1] ) };
         if ( my $error = $@ ) {
             $TEST->ok( 0, $test_name );
             $TEST->diag("$item->[0] was not valid JSON: $error");

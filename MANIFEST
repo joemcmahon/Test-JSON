@@ -6,10 +6,6 @@ META.yml			# Will be created by "make dist"
 README
 t/00-load.t
 t/10testjson.t
-t/20oldjson.t
 t/pod-coverage.t
 t/pod.t
-t/lib/JSON.pm
-t/lib/JSON/Converter.pm
-t/lib/JSON/Parser.pm
 Makefile.PL

@@ -2,20 +2,11 @@
 
 use Test::Tester;
 use Test::JSON;
-use Test::More;
+use Test::More tests => 38;
 
-plan +JSON->VERSION < 1.99
-  ? ( skip_all => 'Not testing new features with old JSON.pm' )
-  : ( tests => 36 );
-use lib 't/lib';
-
-BEGIN {
-
-    # make sure we use the correct JSON version!
-    use_ok 'JSON';
-    cmp_ok +JSON->VERSION, '>=', 1.99,
-      '... and we should be loading the old JSON version';
-}
+use_ok 'JSON' or die;
+cmp_ok +JSON->VERSION, '>=', 1.99,
+  '... and we should be loading the new JSON version';
 
 my $json = '{"bool":1,"name":"foo","id":1,"description":null}';
 my $good = '{"bool":1,"name":"foo","id":1,"description":null}';

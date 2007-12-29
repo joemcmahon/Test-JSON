@@ -1,5 +1,4 @@
 use strict;
-use warnings;
 use Module::Build;
 
 my $builder = Module::Build->new(
@@ -8,7 +7,7 @@ my $builder = Module::Build->new(
     dist_author       => 'Curtis "Ovid" Poe <ovid@cpan.org>',
     dist_version_from => 'lib/Test/JSON.pm',
     requires          => {
-        'JSON'              => 1.00,
+        'JSON'              => 2.02,
         'Test::Differences' => 0.47,
         'Test::Simple'      => 0.62,
         'Test::Tester'      => 0.103,

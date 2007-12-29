@@ -1,5 +1,9 @@
 Revision history for Test-JSON
 
+0.04
+        Took out all support for versions of JSON prior to 2.0 due to
+        installation bugs.
+
 0.03    2007-12-29
         Updated to work with JSON 2.0 or earlier.  Thanks to Makamaka
         Hannyaharamitu for a preliminary patch.

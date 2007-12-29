@@ -1,6 +1,6 @@
 ---
 name: Test-JSON
-version: 0.03
+version: 0.04
 author:
   - 'Curtis "Ovid" Poe <ovid@cpan.org>'
 abstract: Test JSON data
@@ -8,14 +8,14 @@ license: perl
 resources:
   license: http://dev.perl.org/licenses/
 requires:
-  JSON: 1
+  JSON: 2.02
   Test::Differences: 0.47
   Test::Simple: 0.62
   Test::Tester: 0.103
 provides:
   Test::JSON:
     file: lib/Test/JSON.pm
-    version: 0.03
+    version: 0.04
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

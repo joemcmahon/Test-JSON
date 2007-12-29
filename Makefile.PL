@@ -5,7 +5,7 @@ WriteMakefile
           'NAME' => 'Test::JSON',
           'VERSION_FROM' => 'lib/Test/JSON.pm',
           'PREREQ_PM' => {
-                           'JSON' => '1',
+                           'JSON' => '2.02',
                            'Test::Differences' => '0.47',
                            'Test::Simple' => '0.62',
                            'Test::Tester' => '0.103'
