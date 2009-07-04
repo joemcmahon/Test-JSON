@@ -10,7 +10,7 @@ WriteMakefile
                            'Test::Differences' => '0.47',
                            'Test::Tester' => '0.103',
                            'Test::Simple' => '0.62',
-                           'JSON::Any' => '1.19'
+                           'JSON::Any' => '1.2'
                          }
         )
 ;
