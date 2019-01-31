@@ -9,3 +9,4 @@ t/10testjson.t
 t/pod-coverage.t
 t/pod.t
 Makefile.PL
+META.json

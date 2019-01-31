@@ -1,22 +1,27 @@
 ---
-name: Test-JSON
-version: 0.11
+abstract: 'Test JSON data'
 author:
   - 'Curtis "Ovid" Poe <ovid@cpan.org>'
-abstract: Test JSON data
+build_requires: {}
+configure_requires:
+  Module::Build: '0.42'
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4224, CPAN::Meta::Converter version 2.150010'
 license: perl
-resources:
-  license: ~
-requires:
-  JSON::Any: 1.2
-  Test::Differences: 0.47
-  Test::Simple: 0.62
-  Test::Tester: 0.107
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Test-JSON
 provides:
   Test::JSON:
     file: lib/Test/JSON.pm
-    version: 0.11
-generated_by: Module::Build version 0.32
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+    version: '0.12'
+requires:
+  JSON::MaybeXS: '1.004'
+  Test::Differences: '0.47'
+  Test::Simple: '0.62'
+  Test::Tester: '0.107'
+resources:
+  license: http://dev.perl.org/licenses/
+version: '0.12'
+x_serialization_backend: 'CPAN::Meta::YAML version 0.018'

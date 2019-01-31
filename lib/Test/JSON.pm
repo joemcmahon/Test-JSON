@@ -3,7 +3,7 @@ package Test::JSON;
 use strict;
 use Carp;
 use Test::Differences;
-use JSON::Any;
+use JSON::MaybeXS;
 
 use base 'Test::Builder::Module';
 our @EXPORT = qw/is_json is_valid_json/;
@@ -14,13 +14,13 @@ Test::JSON - Test JSON data
 
 =head1 VERSION
 
-Version 0.11
+Version 0.12
 
 =cut
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
-my $JSON = JSON::Any->new;
+my $JSON = JSON::MaybeXS->new;
 
 =head1 SYNOPSIS
 
